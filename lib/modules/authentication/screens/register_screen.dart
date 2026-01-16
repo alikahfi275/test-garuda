@@ -23,7 +23,7 @@ class RegisterScreen extends StatelessWidget {
                 subtitle: "Let's create your account",
               ),
               const SizedBox(height: 30),
-              RegisterForm(),
+              const RegisterForm(),
               const Spacer(),
               const AppDivider(),
               const SizedBox(height: 20),

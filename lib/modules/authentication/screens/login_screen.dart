@@ -23,7 +23,7 @@ class LoginScreen extends StatelessWidget {
                 subtitle: "Sign in to start booking a class",
               ),
               const SizedBox(height: 30),
-              LoginForm(),
+              const LoginForm(),
               const Spacer(),
               const AppDivider(),
               const SizedBox(height: 20),
