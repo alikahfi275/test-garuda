@@ -1,11 +1,20 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:test_garuda/core/routes/app_routes.dart';
+import 'package:test_garuda/data/models/login_model.dart';
+import 'package:test_garuda/data/repositories/auth_repository.dart';
+import 'package:test_garuda/widgets/app_toast.dart';
 
 class LoginController extends GetxController {
-  final emailController = TextEditingController();
+  final AuthRepository _repository;
+
+  LoginController(this._repository);
+
+  final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
-  final emailError = RxnString();
+  final usernameError = RxnString();
   final passwordError = RxnString();
 
   final isLoading = false.obs;
@@ -13,19 +22,20 @@ class LoginController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    emailController.addListener(_validateEmail);
+    usernameController.addListener(_validateUsername);
+
     passwordController.addListener(_validatePassword);
   }
 
-  void _validateEmail() {
-    final email = emailController.text.trim();
+  void _validateUsername() {
+    final value = usernameController.text.trim();
 
-    if (email.isEmpty) {
-      emailError.value = 'Email is required';
-    } else if (!GetUtils.isEmail(email)) {
-      emailError.value = 'Invalid email address';
+    if (value.isEmpty) {
+      usernameError.value = 'Username is required';
+    } else if (value.length < 3) {
+      usernameError.value = 'Username must be at least 3 characters';
     } else {
-      emailError.value = null;
+      usernameError.value = null;
     }
   }
 
@@ -42,25 +52,46 @@ class LoginController extends GetxController {
   }
 
   bool get isFormValid =>
-      emailError.value == null &&
+      usernameError.value == null &&
       passwordError.value == null &&
-      emailController.text.isNotEmpty &&
+      usernameController.text.isNotEmpty &&
       passwordController.text.isNotEmpty;
 
   Future<void> login() async {
-    _validateEmail();
+    _validateUsername();
     _validatePassword();
 
-    if (!isFormValid) return;
+    if (!isFormValid || isLoading.value) return;
 
     try {
       isLoading.value = true;
 
-      await Future.delayed(const Duration(seconds: 2));
+      final request = LoginModel(
+        username: usernameController.text.trim(),
+        password: passwordController.text,
+      );
 
-      // contoh sukses:
+      final response = await _repository.login(request);
+
+      print("tas tes tas tes${response.statusCode}");
+
+      if (response.statusCode == 200) {
+        AppToast.success('Login successful');
+
+        Get.offAllNamed(Routes.buttomNav);
+      } else {
+        AppToast.error('Invalid email or password');
+      }
     } catch (e) {
-      Get.snackbar('Error', 'Login failed');
+      if (e is DioException) {
+        final statusCode = e.response?.statusCode;
+
+        if (statusCode == 401) {
+          AppToast.error('Username atau password salah');
+        }
+      } else {
+        AppToast.error('Unexpected error occurred');
+      }
     } finally {
       isLoading.value = false;
     }
@@ -68,7 +99,7 @@ class LoginController extends GetxController {
 
   @override
   void onClose() {
-    emailController.dispose();
+    usernameController.dispose();
     passwordController.dispose();
     super.onClose();
   }

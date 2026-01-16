@@ -18,7 +18,11 @@ class AppPages {
       page: () => const LoginScreen(),
       binding: AuthBinding(),
     ),
-    GetPage(name: Routes.register, page: () => const RegisterScreen()),
+    GetPage(
+      name: Routes.register,
+      page: () => const RegisterScreen(),
+      binding: AuthBinding(),
+    ),
     GetPage(name: Routes.buttomNav, page: () => const BottomNavScreen()),
     GetPage(
       name: Routes.forgetPassword,

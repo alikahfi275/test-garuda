@@ -10,7 +10,7 @@ import 'package:test_garuda/widgets/app_text.dart';
 class LoginForm extends StatelessWidget {
   LoginForm({super.key});
 
-  final controller = Get.put(LoginController());
+  final controller = Get.find<LoginController>();
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +18,11 @@ class LoginForm extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AppInput(
-          label: 'Email',
-          hint: 'name@example.com',
-          keyboardType: TextInputType.emailAddress,
-          controller: controller.emailController,
-          errorText: controller.emailError,
+          label: 'Username',
+          hint: 'username',
+          keyboardType: TextInputType.text,
+          controller: controller.usernameController,
+          errorText: controller.usernameError,
         ),
 
         const SizedBox(height: 10),

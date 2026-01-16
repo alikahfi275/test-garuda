@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:test_garuda/modules/authentication/controllers/register_controller.dart';
 import 'package:test_garuda/widgets/app_button.dart';
 import 'package:test_garuda/widgets/app_input.dart';
 
 class RegisterForm extends StatelessWidget {
-  const RegisterForm({super.key});
+  RegisterForm({super.key});
+
+  final controller = Get.find<RegisterController>();
 
   @override
   Widget build(BuildContext context) {
@@ -13,37 +17,45 @@ class RegisterForm extends StatelessWidget {
         AppInput(
           label: 'Username',
           hint: 'username',
-          // controller: authC.emailController,
           keyboardType: TextInputType.name,
+          controller: controller.usernameController,
+          errorText: controller.usernameError,
         ),
         const SizedBox(height: 10),
+
         AppInput(
           label: 'Email',
           hint: 'name@example.com',
-          // controller: authC.emailController,
           keyboardType: TextInputType.emailAddress,
+          controller: controller.emailController,
+          errorText: controller.emailError,
         ),
         const SizedBox(height: 10),
+
         AppInput(
           label: 'Password',
           hint: 'password',
-          // controller: authC.emailController,
-          keyboardType: TextInputType.visiblePassword,
           obscureText: true,
+          controller: controller.passwordController,
+          errorText: controller.passwordError,
         ),
         const SizedBox(height: 10),
+
         AppInput(
           label: 'Confirm Password',
           hint: 'confirm password',
-          // controller: authC.emailController,
-          keyboardType: TextInputType.visiblePassword,
           obscureText: true,
+          controller: controller.confirmPasswordController,
+          errorText: controller.confirmPasswordError,
         ),
         const SizedBox(height: 30),
-        AppButton(
-          text: 'Create Account',
-          onPressed: () {},
-          variant: AppButtonVariant.primary,
+
+        Obx(
+          () => AppButton(
+            text: controller.isLoading.value ? 'Loading...' : 'Create Account',
+            onPressed: controller.register,
+            variant: AppButtonVariant.primary,
+          ),
         ),
       ],
     );

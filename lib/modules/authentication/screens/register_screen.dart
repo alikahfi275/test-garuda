@@ -12,26 +12,29 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AppHeaderForm(
-                title: 'Welcome to Outkast',
-                subtitle: "Let's create your account",
-              ),
-              const SizedBox(height: 30),
-              const RegisterForm(),
-              const Spacer(),
-              const AppDivider(),
-              const SizedBox(height: 20),
-              AuthGoogleButton(
-                onPressed: () => AppToast.error('Fitur belum tersedia'),
-                onTapFooterLink: () => AppToast.error('Fitur belum tersedia'),
-              ),
-            ],
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppHeaderForm(
+                  title: 'Welcome to Outkast',
+                  subtitle: "Let's create your account",
+                ),
+                const SizedBox(height: 30),
+                RegisterForm(),
+                const SizedBox(height: 60),
+                const AppDivider(),
+                const SizedBox(height: 20),
+                AuthGoogleButton(
+                  onPressed: () => AppToast.error('Fitur belum tersedia'),
+                  onTapFooterLink: () => AppToast.error('Fitur belum tersedia'),
+                ),
+              ],
+            ),
           ),
         ),
       ),
