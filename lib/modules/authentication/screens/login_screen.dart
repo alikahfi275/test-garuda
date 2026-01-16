@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:test_garuda/core/routes/app_routes.dart';
 
 import 'package:test_garuda/widgets/app_divider.dart';
 import 'package:test_garuda/widgets/app_header_form.dart';
@@ -21,6 +23,7 @@ class LoginScreen extends StatelessWidget {
               AppHeaderForm(
                 title: 'Welcome Back',
                 subtitle: "Sign in to start booking a class",
+                onBack: () => Get.toNamed(Routes.menuAuth),
               ),
               const SizedBox(height: 30),
               const LoginForm(),
