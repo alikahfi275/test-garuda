@@ -18,17 +18,12 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  AppHeaderForm(
-                    title: 'Welcome Back',
-                    subtitle: "Sign in to start booking a class",
-                  ),
-                  const SizedBox(height: 30),
-                  LoginForm(),
-                ],
+              AppHeaderForm(
+                title: 'Welcome Back',
+                subtitle: "Sign in to start booking a class",
               ),
+              const SizedBox(height: 30),
+              LoginForm(),
               const Spacer(),
               const AppDivider(),
               const SizedBox(height: 20),

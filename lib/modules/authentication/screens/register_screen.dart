@@ -18,17 +18,12 @@ class RegisterScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  AppHeaderForm(
-                    title: 'Welcome to Outkast',
-                    subtitle: "Let's create your account",
-                  ),
-                  const SizedBox(height: 30),
-                  RegisterForm(),
-                ],
+              AppHeaderForm(
+                title: 'Welcome to Outkast',
+                subtitle: "Let's create your account",
               ),
+              const SizedBox(height: 30),
+              RegisterForm(),
               const Spacer(),
               const AppDivider(),
               const SizedBox(height: 20),
