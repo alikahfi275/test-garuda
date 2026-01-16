@@ -26,7 +26,7 @@ class LoginScreen extends StatelessWidget {
                 onBack: () => Get.toNamed(Routes.menuAuth),
               ),
               const SizedBox(height: 30),
-              const LoginForm(),
+              LoginForm(),
               const Spacer(),
               const AppDivider(),
               const SizedBox(height: 20),

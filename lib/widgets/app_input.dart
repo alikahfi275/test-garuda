@@ -9,6 +9,7 @@ class AppInput extends StatelessWidget {
   final TextEditingController? controller;
   final TextInputType keyboardType;
   final Widget? suffixIcon;
+  final RxnString? errorText;
 
   const AppInput({
     super.key,
@@ -18,6 +19,7 @@ class AppInput extends StatelessWidget {
     this.controller,
     this.keyboardType = TextInputType.text,
     this.suffixIcon,
+    this.errorText,
   });
 
   @override
@@ -65,6 +67,21 @@ class AppInput extends StatelessWidget {
             ),
           ),
         ),
+
+        if (errorText != null)
+          Obx(
+            () => errorText!.value == null
+                ? const SizedBox.shrink()
+                : Padding(
+                    padding: const EdgeInsets.only(top: 6),
+                    child: AppText(
+                      errorText!.value!,
+                      size: 12,
+                      color: colorScheme.error,
+                      weight: FontWeight.w500,
+                    ),
+                  ),
+          ),
       ],
     );
   }
