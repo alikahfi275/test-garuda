@@ -36,7 +36,7 @@ class AuthActionSheet extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             InkWell(
-              onTap: () {},
+              onTap: () => Get.toNamed(Routes.buttomNav),
               child: AppText('Continue as a guest', weight: FontWeight.w500),
             ),
           ],

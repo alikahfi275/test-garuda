@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:test_garuda/core/routes/app_routes.dart';
+
 import 'package:test_garuda/widgets/app_button.dart';
 import 'package:test_garuda/widgets/app_input.dart';
+import 'package:test_garuda/widgets/app_text.dart';
 
-class RegisterForm extends StatelessWidget {
-  const RegisterForm({super.key});
+class LoginForm extends StatelessWidget {
+  const LoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,37 +15,35 @@ class RegisterForm extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AppInput(
-          label: 'Username',
-          hint: 'username',
-          // controller: authC.emailController,
-          keyboardType: TextInputType.name,
-        ),
-        const SizedBox(height: 10),
-        AppInput(
           label: 'Email',
           hint: 'name@example.com',
-          // controller: authC.emailController,
           keyboardType: TextInputType.emailAddress,
         ),
         const SizedBox(height: 10),
         AppInput(
           label: 'Password',
           hint: 'password',
-          // controller: authC.emailController,
           keyboardType: TextInputType.visiblePassword,
           obscureText: true,
         ),
-        const SizedBox(height: 10),
-        AppInput(
-          label: 'Confirm Password',
-          hint: 'confirm password',
-          // controller: authC.emailController,
-          keyboardType: TextInputType.visiblePassword,
-          obscureText: true,
+        const SizedBox(height: 5),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            InkWell(
+              onTap: () => Get.toNamed(Routes.forgetPassword),
+              child: AppText(
+                'Forgot Password',
+                size: 12,
+                weight: FontWeight.w500,
+                align: TextAlign.right,
+              ),
+            ),
+          ],
         ),
         const SizedBox(height: 30),
         AppButton(
-          text: 'Create Account',
+          text: 'Sign in',
           onPressed: () {},
           variant: AppButtonVariant.primary,
         ),
