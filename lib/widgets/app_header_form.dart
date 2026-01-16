@@ -21,10 +21,11 @@ class AppHeaderForm extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        IconButton(
-          onPressed: onBack ?? () => Get.back(),
-          icon: const Icon(Icons.arrow_back),
-        ),
+        if (showBack)
+          IconButton(
+            onPressed: onBack ?? () => Get.back(),
+            icon: const Icon(Icons.arrow_back),
+          ),
 
         AppText(
           title,

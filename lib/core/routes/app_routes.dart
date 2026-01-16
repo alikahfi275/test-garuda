@@ -5,4 +5,5 @@ abstract class Routes {
   static const buttomNav = '/bottom-nav';
   static const forgetPassword = '/forget-password';
   static const newPassword = '/new-password';
+  static const resultPassword = '/result-password';
 }
