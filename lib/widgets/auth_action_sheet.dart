@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:test_garuda/core/routes/app_routes.dart';
 
 import 'package:test_garuda/widgets/app_button.dart';
 import 'package:test_garuda/widgets/app_text.dart';
@@ -25,13 +26,13 @@ class AuthActionSheet extends StatelessWidget {
             AppButton(
               text: 'Sign in',
               variant: AppButtonVariant.primary,
-              onPressed: () {},
+              onPressed: () => Get.toNamed(Routes.login),
             ),
             const SizedBox(height: 10),
             AppButton(
               text: 'Create Account',
               variant: AppButtonVariant.secondary,
-              onPressed: () {},
+              onPressed: () => Get.toNamed(Routes.register),
             ),
             const SizedBox(height: 40),
             InkWell(

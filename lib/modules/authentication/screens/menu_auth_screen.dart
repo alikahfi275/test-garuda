@@ -17,14 +17,12 @@ class MenuAuthScreen extends StatelessWidget {
             bottom: 250,
             child: Image.asset('assets/images/bg_auth.png', fit: BoxFit.fill),
           ),
-
           Positioned(
             left: 24,
             right: 24,
             bottom: 250 + 32,
             child: const AuthHeroPager(),
           ),
-
           Positioned(bottom: 0, left: 0, right: 0, child: AuthActionSheet()),
         ],
       ),
