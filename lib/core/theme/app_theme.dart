@@ -34,5 +34,25 @@ class AppTheme {
       tertiaryFixedDim: smoke,
       onTertiaryFixed: stoneDot,
     ),
+
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: background,
+      selectedItemColor: primary,
+      unselectedItemColor: concrete,
+      selectedLabelStyle: TextStyle(
+        fontWeight: FontWeight.w500,
+        fontFamily: "Inter",
+        fontSize: 12,
+      ),
+      unselectedLabelStyle: TextStyle(
+        fontWeight: FontWeight.w300,
+        fontFamily: "Inter",
+        fontSize: 10,
+      ),
+      selectedIconTheme: IconThemeData(color: primary, size: 26),
+      unselectedIconTheme: IconThemeData(color: concrete, size: 24),
+      type: BottomNavigationBarType.fixed,
+      elevation: 1,
+    ),
   );
 }
