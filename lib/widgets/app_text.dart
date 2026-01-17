@@ -1,6 +1,5 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
 
 class AppText extends StatelessWidget {
   final String text;
@@ -11,6 +10,7 @@ class AppText extends StatelessWidget {
   final int? maxLines;
   final TextOverflow? overflow;
   final double? height;
+  final FontStyle? fontStyle;
 
   const AppText(
     this.text, {
@@ -22,6 +22,7 @@ class AppText extends StatelessWidget {
     this.maxLines,
     this.overflow,
     this.height,
+    this.fontStyle,
   });
 
   @override
@@ -37,6 +38,7 @@ class AppText extends StatelessWidget {
         fontWeight: weight ?? FontWeight.w600,
         color: color ?? Get.theme.colorScheme.onPrimary,
         height: height,
+        fontStyle: fontStyle,
       ),
     );
   }
