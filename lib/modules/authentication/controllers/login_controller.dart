@@ -73,14 +73,8 @@ class LoginController extends GetxController {
 
       final response = await _repository.login(request);
 
-      print("tas tes tas tes${response.statusCode}");
-
       if (response.statusCode == 200) {
-        AppToast.success('Login successful');
-
         Get.offAllNamed(Routes.buttomNav);
-      } else {
-        AppToast.error('Invalid email or password');
       }
     } catch (e) {
       if (e is DioException) {
@@ -88,9 +82,11 @@ class LoginController extends GetxController {
 
         if (statusCode == 401) {
           AppToast.error('Username atau password salah');
+        } else if (statusCode == 400) {
+          AppToast.error('Silahkan masukkan username dan password');
         }
       } else {
-        AppToast.error('Unexpected error occurred');
+        AppToast.error('Login failed. Please try again.');
       }
     } finally {
       isLoading.value = false;

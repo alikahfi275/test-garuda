@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_garuda/core/routes/app_routes.dart';
@@ -112,12 +113,20 @@ class RegisterController extends GetxController {
       if (response.statusCode == 201) {
         AppToast.success('Registration successful');
 
-        Get.toNamed(Routes.login);
-      } else {
-        AppToast.error('Register failed');
+        Get.offNamed(Routes.login);
       }
     } catch (e) {
-      AppToast.error('Register failed. Please try again.');
+      if (e is DioException) {
+        final statusCode = e.response?.statusCode;
+
+        if (statusCode == 409) {
+          AppToast.error('Username sudah terdaftar');
+        } else if (statusCode == 400) {
+          AppToast.error('Silahkan masukkan username, email, dan password');
+        }
+      } else {
+        AppToast.error('Register failed. Please try again.');
+      }
     } finally {
       isLoading.value = false;
     }

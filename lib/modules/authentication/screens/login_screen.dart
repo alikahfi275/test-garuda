@@ -23,7 +23,6 @@ class LoginScreen extends StatelessWidget {
               AppHeaderForm(
                 title: 'Welcome Back',
                 subtitle: "Sign in to start booking a class",
-                onBack: () => Get.toNamed(Routes.menuAuth),
               ),
               const SizedBox(height: 30),
               LoginForm(),
