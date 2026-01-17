@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
+
 import 'package:test_garuda/core/routes/app_routes.dart';
 import 'package:test_garuda/data/models/login_model.dart';
 import 'package:test_garuda/data/repositories/auth_repository.dart';

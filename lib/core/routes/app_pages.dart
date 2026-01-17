@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../core/routes/app_routes.dart';
+import 'package:test_garuda/core/routes/app_routes.dart';
 import 'package:test_garuda/core/routes/app_bottom_nav.dart';
 import 'package:test_garuda/modules/authentication/bindings/auth_binding.dart';
 import 'package:test_garuda/modules/authentication/screens/result_password_screen.dart';
