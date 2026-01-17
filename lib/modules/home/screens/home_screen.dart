@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
+import 'package:test_garuda/widgets/list_near.dart';
 import 'package:test_garuda/widgets/app_header.dart';
 import 'package:test_garuda/widgets/list_instructor.dart';
 import 'package:test_garuda/widgets/home_activity_section.dart';
@@ -13,7 +14,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
@@ -29,6 +30,7 @@ class HomeScreen extends StatelessWidget {
               () =>
                   ListInstructor(instructors: controller.instructors.toList()),
             ),
+            Obx(() => ListNear(nearClasses: controller.nearClasses.toList())),
           ],
         ),
       ),
