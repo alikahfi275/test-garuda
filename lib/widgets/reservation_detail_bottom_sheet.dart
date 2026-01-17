@@ -1,21 +1,12 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:test_garuda/core/routes/app_routes.dart';
 import 'package:test_garuda/widgets/app_button.dart';
 import 'package:test_garuda/widgets/app_text.dart';
-import 'package:test_garuda/widgets/reservation_detail_bottom_sheet.dart';
 
-class ReservationBottomSheet extends StatelessWidget {
-  const ReservationBottomSheet({super.key});
-
-  void showReservationSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder: (_) => const ReservationDetailBottomSheet(),
-    );
-  }
+class ReservationDetailBottomSheet extends StatelessWidget {
+  const ReservationDetailBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,27 +39,10 @@ class ReservationBottomSheet extends StatelessWidget {
                   ),
                 ),
                 AppText(
-                  'Reservation ',
+                  'Reservation Success',
                   size: 20,
                   weight: FontWeight.w700,
                   align: TextAlign.center,
-                ),
-                const SizedBox(height: 16),
-                _InfoBlock(),
-                const SizedBox(height: 24),
-                AppButton(
-                  text: "Reserve",
-                  onPressed: () {
-                    Get.back();
-                    showReservationSheet(context);
-                  },
-                  variant: AppButtonVariant.primary,
-                ),
-                const SizedBox(height: 12),
-                AppButton(
-                  text: "Cencel",
-                  onPressed: () => Get.back(),
-                  variant: AppButtonVariant.secondary,
                 ),
                 const SizedBox(height: 16),
                 AppText(
@@ -77,6 +51,16 @@ class ReservationBottomSheet extends StatelessWidget {
                   align: TextAlign.center,
                   color: cs.onPrimary,
                 ),
+                const SizedBox(height: 16),
+                _InfoBlock(),
+                const SizedBox(height: 24),
+
+                AppButton(
+                  text: "Got To Reservation",
+                  onPressed: () => Get.toNamed(Routes.buttomNav),
+                  variant: AppButtonVariant.secondary,
+                ),
+                const SizedBox(height: 16),
               ],
             ),
           ),
