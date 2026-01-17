@@ -9,6 +9,8 @@ import 'package:test_garuda/modules/authentication/screens/new_password_screen.d
 import 'package:test_garuda/modules/authentication/screens/menu_auth_screen.dart';
 import 'package:test_garuda/modules/authentication/screens/register_screen.dart';
 import 'package:test_garuda/modules/authentication/screens/login_screen.dart';
+import 'package:test_garuda/modules/home/bindings/home_binding.dart';
+import 'package:test_garuda/modules/home/screens/search_screen.dart';
 
 class AppPages {
   static final routes = [
@@ -32,6 +34,11 @@ class AppPages {
     GetPage(
       name: Routes.resultPassword,
       page: () => const ResultPasswordScreen(),
+    ),
+    GetPage(
+      name: Routes.search,
+      page: () => SearchScreen(),
+      binding: HomeBinding(),
     ),
   ];
 }

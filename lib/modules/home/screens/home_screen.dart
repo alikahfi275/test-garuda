@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:test_garuda/core/routes/app_routes.dart';
 
 import 'package:test_garuda/widgets/list_near.dart';
 import 'package:test_garuda/widgets/app_header.dart';
@@ -22,7 +23,7 @@ class HomeScreen extends StatelessWidget {
               type: AppHeaderType.home,
               location: 'Tangerang',
               onLocationTap: () {},
-              onSearchTap: () {},
+              onSearchTap: () => Get.toNamed(Routes.search),
               onNotificationTap: () {},
             ),
             ActivitySection(),

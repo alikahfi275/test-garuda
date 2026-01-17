@@ -32,7 +32,7 @@ class AppHeader extends StatelessWidget {
     final colorScheme = Get.theme.colorScheme;
 
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 16),
+      padding: const EdgeInsets.only(bottom: 16),
       child: SafeArea(
         bottom: false,
         child: type == AppHeaderType.home
@@ -85,8 +85,7 @@ class AppHeader extends StatelessWidget {
   }
 
   Widget _simpleHeader(ColorScheme colorScheme) {
-    return Stack(
-      alignment: Alignment.center,
+    return Row(
       children: [
         Align(
           alignment: Alignment.centerLeft,
@@ -95,12 +94,16 @@ class AppHeader extends StatelessWidget {
             icon: Icon(Icons.arrow_back, color: colorScheme.onPrimary),
           ),
         ),
-        AppText(
-          title ?? '',
-          size: 22,
-          weight: FontWeight.w700,
-          fontStyle: FontStyle.italic,
+        Expanded(
+          child: AppText(
+            title ?? '',
+            size: 22,
+            weight: FontWeight.w700,
+            fontStyle: FontStyle.italic,
+            align: TextAlign.center,
+          ),
         ),
+        const SizedBox(width: 40),
       ],
     );
   }

@@ -5,6 +5,7 @@ class ReservationModel {
   final String instructor;
   final String slotText;
   final bool isAvailable;
+  final DateTime? dateReservation;
 
   ReservationModel({
     required this.time,
@@ -13,5 +14,6 @@ class ReservationModel {
     required this.instructor,
     required this.slotText,
     required this.isAvailable,
+    this.dateReservation,
   });
 }
