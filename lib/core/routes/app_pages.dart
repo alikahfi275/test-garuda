@@ -12,6 +12,8 @@ import 'package:test_garuda/modules/authentication/screens/login_screen.dart';
 import 'package:test_garuda/modules/home/bindings/home_binding.dart';
 import 'package:test_garuda/modules/home/screens/detail_screen.dart';
 import 'package:test_garuda/modules/home/screens/search_screen.dart';
+import 'package:test_garuda/modules/profile/bindings/profile_binding.dart';
+import 'package:test_garuda/modules/profile/screens/profile_edit_screen.dart';
 
 class AppPages {
   static final routes = [
@@ -45,6 +47,11 @@ class AppPages {
       name: Routes.detail,
       page: () => DetailScreen(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.profileEdit,
+      page: () => const ProfileEditScreen(),
+      binding: ProfileBinding(),
     ),
   ];
 }
