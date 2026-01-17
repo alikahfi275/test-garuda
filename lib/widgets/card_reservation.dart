@@ -56,7 +56,6 @@ class CardReservation extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              // SLOT BADGE
               Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 12,

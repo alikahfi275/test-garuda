@@ -7,4 +7,5 @@ abstract class Routes {
   static const newPassword = '/new-password';
   static const resultPassword = '/result-password';
   static const search = '/search';
+  static const detail = '/detail';
 }

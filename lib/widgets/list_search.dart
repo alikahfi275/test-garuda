@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:test_garuda/core/routes/app_routes.dart';
 
 import 'package:test_garuda/modules/home/controllers/search_controller.dart';
 import 'package:test_garuda/widgets/app_text.dart';
@@ -30,7 +31,10 @@ class ListSearch extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               ...items.map(
-                (item) => CardReservation(data: item, onAction: () {}),
+                (item) => CardReservation(
+                  data: item,
+                  onAction: () => Get.toNamed(Routes.detail),
+                ),
               ),
               const SizedBox(height: 24),
             ],
