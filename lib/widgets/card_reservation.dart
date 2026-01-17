@@ -32,7 +32,6 @@ class CardReservation extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // ================= LEFT =================
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,7 +51,6 @@ class CardReservation extends StatelessWidget {
             ),
           ),
 
-          // ================= RIGHT =================
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -76,7 +74,6 @@ class CardReservation extends StatelessWidget {
               ),
               const SizedBox(height: 12),
 
-              // ACTION BUTTON
               ElevatedButton(
                 onPressed: onAction,
                 style: ElevatedButton.styleFrom(

@@ -7,7 +7,7 @@ import 'package:test_garuda/modules/reservation/screens/reservtion_screen.dart';
 class BottomNavController extends GetxController {
   final currentIndex = 0.obs;
 
-  final pages = [HomeScreen(), ReservtionScreen(), ProfileScreen()];
+  final pages = [HomeScreen(), ReservationScreen(), ProfileScreen()];
 
   void changePage(int index) {
     currentIndex.value = index;
