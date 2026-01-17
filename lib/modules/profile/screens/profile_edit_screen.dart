@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:test_garuda/widgets/app_button.dart';
 import 'package:test_garuda/widgets/app_header.dart';
 import 'package:test_garuda/widgets/app_input.dart';
-import 'package:test_garuda/widgets/app_text.dart';
 import '../controllers/profile_edit_controller.dart';
 
 class ProfileEditScreen extends StatelessWidget {
@@ -12,7 +11,6 @@ class ProfileEditScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cs = Get.theme.colorScheme;
     final controller = Get.find<ProfileEditController>();
 
     return Scaffold(
